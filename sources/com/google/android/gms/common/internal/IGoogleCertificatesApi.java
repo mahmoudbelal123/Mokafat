@@ -1,0 +1,127 @@
+package com.google.android.gms.common.internal;
+
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
+import com.google.android.gms.common.GoogleCertificatesQuery;
+import com.google.android.gms.dynamic.IObjectWrapper;
+
+/* JADX INFO: loaded from: classes.dex */
+public interface IGoogleCertificatesApi extends IInterface {
+
+    public static abstract class Stub extends com.google.android.gms.internal.stable.zzb implements IGoogleCertificatesApi {
+
+        public static class Proxy extends com.google.android.gms.internal.stable.zza implements IGoogleCertificatesApi {
+            Proxy(IBinder iBinder) {
+                super(iBinder, "com.google.android.gms.common.internal.IGoogleCertificatesApi");
+            }
+
+            @Override // com.google.android.gms.common.internal.IGoogleCertificatesApi
+            public IObjectWrapper getGoogleCertificates() throws RemoteException {
+                Parcel parcelTransactAndReadException = transactAndReadException(1, obtainAndWriteInterfaceToken());
+                IObjectWrapper iObjectWrapperAsInterface = IObjectWrapper.Stub.asInterface(parcelTransactAndReadException.readStrongBinder());
+                parcelTransactAndReadException.recycle();
+                return iObjectWrapperAsInterface;
+            }
+
+            @Override // com.google.android.gms.common.internal.IGoogleCertificatesApi
+            public IObjectWrapper getGoogleReleaseCertificates() throws RemoteException {
+                Parcel parcelTransactAndReadException = transactAndReadException(2, obtainAndWriteInterfaceToken());
+                IObjectWrapper iObjectWrapperAsInterface = IObjectWrapper.Stub.asInterface(parcelTransactAndReadException.readStrongBinder());
+                parcelTransactAndReadException.recycle();
+                return iObjectWrapperAsInterface;
+            }
+
+            @Override // com.google.android.gms.common.internal.IGoogleCertificatesApi
+            public boolean isGoogleOrPlatformSigned(GoogleCertificatesQuery googleCertificatesQuery, IObjectWrapper iObjectWrapper) throws RemoteException {
+                Parcel parcelObtainAndWriteInterfaceToken = obtainAndWriteInterfaceToken();
+                com.google.android.gms.internal.stable.zzc.zza(parcelObtainAndWriteInterfaceToken, googleCertificatesQuery);
+                com.google.android.gms.internal.stable.zzc.zza(parcelObtainAndWriteInterfaceToken, iObjectWrapper);
+                Parcel parcelTransactAndReadException = transactAndReadException(5, parcelObtainAndWriteInterfaceToken);
+                boolean zZza = com.google.android.gms.internal.stable.zzc.zza(parcelTransactAndReadException);
+                parcelTransactAndReadException.recycle();
+                return zZza;
+            }
+
+            @Override // com.google.android.gms.common.internal.IGoogleCertificatesApi
+            public boolean isGoogleReleaseSigned(String str, IObjectWrapper iObjectWrapper) throws RemoteException {
+                Parcel parcelObtainAndWriteInterfaceToken = obtainAndWriteInterfaceToken();
+                parcelObtainAndWriteInterfaceToken.writeString(str);
+                com.google.android.gms.internal.stable.zzc.zza(parcelObtainAndWriteInterfaceToken, iObjectWrapper);
+                Parcel parcelTransactAndReadException = transactAndReadException(3, parcelObtainAndWriteInterfaceToken);
+                boolean zZza = com.google.android.gms.internal.stable.zzc.zza(parcelTransactAndReadException);
+                parcelTransactAndReadException.recycle();
+                return zZza;
+            }
+
+            @Override // com.google.android.gms.common.internal.IGoogleCertificatesApi
+            public boolean isGoogleSigned(String str, IObjectWrapper iObjectWrapper) throws RemoteException {
+                Parcel parcelObtainAndWriteInterfaceToken = obtainAndWriteInterfaceToken();
+                parcelObtainAndWriteInterfaceToken.writeString(str);
+                com.google.android.gms.internal.stable.zzc.zza(parcelObtainAndWriteInterfaceToken, iObjectWrapper);
+                Parcel parcelTransactAndReadException = transactAndReadException(4, parcelObtainAndWriteInterfaceToken);
+                boolean zZza = com.google.android.gms.internal.stable.zzc.zza(parcelTransactAndReadException);
+                parcelTransactAndReadException.recycle();
+                return zZza;
+            }
+        }
+
+        public Stub() {
+            super("com.google.android.gms.common.internal.IGoogleCertificatesApi");
+        }
+
+        public static IGoogleCertificatesApi asInterface(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.common.internal.IGoogleCertificatesApi");
+            return iInterfaceQueryLocalInterface instanceof IGoogleCertificatesApi ? (IGoogleCertificatesApi) iInterfaceQueryLocalInterface : new Proxy(iBinder);
+        }
+
+        @Override // com.google.android.gms.internal.stable.zzb
+        protected boolean dispatchTransaction(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            IObjectWrapper googleCertificates;
+            boolean zIsGoogleReleaseSigned;
+            switch (i) {
+                case 1:
+                    googleCertificates = getGoogleCertificates();
+                    parcel2.writeNoException();
+                    com.google.android.gms.internal.stable.zzc.zza(parcel2, googleCertificates);
+                    return true;
+                case 2:
+                    googleCertificates = getGoogleReleaseCertificates();
+                    parcel2.writeNoException();
+                    com.google.android.gms.internal.stable.zzc.zza(parcel2, googleCertificates);
+                    return true;
+                case 3:
+                    zIsGoogleReleaseSigned = isGoogleReleaseSigned(parcel.readString(), IObjectWrapper.Stub.asInterface(parcel.readStrongBinder()));
+                    parcel2.writeNoException();
+                    com.google.android.gms.internal.stable.zzc.zza(parcel2, zIsGoogleReleaseSigned);
+                    return true;
+                case 4:
+                    zIsGoogleReleaseSigned = isGoogleSigned(parcel.readString(), IObjectWrapper.Stub.asInterface(parcel.readStrongBinder()));
+                    parcel2.writeNoException();
+                    com.google.android.gms.internal.stable.zzc.zza(parcel2, zIsGoogleReleaseSigned);
+                    return true;
+                case 5:
+                    zIsGoogleReleaseSigned = isGoogleOrPlatformSigned((GoogleCertificatesQuery) com.google.android.gms.internal.stable.zzc.zza(parcel, GoogleCertificatesQuery.CREATOR), IObjectWrapper.Stub.asInterface(parcel.readStrongBinder()));
+                    parcel2.writeNoException();
+                    com.google.android.gms.internal.stable.zzc.zza(parcel2, zIsGoogleReleaseSigned);
+                    return true;
+                default:
+                    return false;
+            }
+        }
+    }
+
+    IObjectWrapper getGoogleCertificates() throws RemoteException;
+
+    IObjectWrapper getGoogleReleaseCertificates() throws RemoteException;
+
+    boolean isGoogleOrPlatformSigned(GoogleCertificatesQuery googleCertificatesQuery, IObjectWrapper iObjectWrapper) throws RemoteException;
+
+    boolean isGoogleReleaseSigned(String str, IObjectWrapper iObjectWrapper) throws RemoteException;
+
+    boolean isGoogleSigned(String str, IObjectWrapper iObjectWrapper) throws RemoteException;
+}

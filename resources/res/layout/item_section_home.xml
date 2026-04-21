@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="80dp"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView_section_home"
+            android:padding="5dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:civ_border_color="#fff"
+            app:civ_border_width="0dp"/>
+        <ProgressBar
+            android:layout_gravity="center"
+            android:id="@+id/progress_section_load"
+            android:visibility="visible"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+    </FrameLayout>
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@color/taupegray"
+        android:gravity="center"
+        android:id="@+id/text_section_title"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Insurance and sports"/>
+</LinearLayout>

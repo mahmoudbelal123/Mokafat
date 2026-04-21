@@ -1,0 +1,42 @@
+package com.google.android.gms.location;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.google.android.gms.common.internal.ClientIdentity;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import java.util.ArrayList;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class zzf implements Parcelable.Creator<ActivityTransitionRequest> {
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ ActivityTransitionRequest createFromParcel(Parcel parcel) {
+        int iValidateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
+        ArrayList arrayListCreateTypedList = null;
+        String strCreateString = null;
+        ArrayList arrayListCreateTypedList2 = null;
+        while (parcel.dataPosition() < iValidateObjectHeader) {
+            int header = SafeParcelReader.readHeader(parcel);
+            switch (SafeParcelReader.getFieldId(header)) {
+                case 1:
+                    arrayListCreateTypedList = SafeParcelReader.createTypedList(parcel, header, ActivityTransition.CREATOR);
+                    break;
+                case 2:
+                    strCreateString = SafeParcelReader.createString(parcel, header);
+                    break;
+                case 3:
+                    arrayListCreateTypedList2 = SafeParcelReader.createTypedList(parcel, header, ClientIdentity.CREATOR);
+                    break;
+                default:
+                    SafeParcelReader.skipUnknownField(parcel, header);
+                    break;
+            }
+        }
+        SafeParcelReader.ensureAtEnd(parcel, iValidateObjectHeader);
+        return new ActivityTransitionRequest(arrayListCreateTypedList, strCreateString, arrayListCreateTypedList2);
+    }
+
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ ActivityTransitionRequest[] newArray(int i) {
+        return new ActivityTransitionRequest[i];
+    }
+}

@@ -1,0 +1,18 @@
+package com.google.android.gms.measurement.internal;
+
+/* JADX INFO: loaded from: classes.dex */
+final class zzdk implements Runnable {
+    private final /* synthetic */ zzcs zzarc;
+    private final /* synthetic */ long zzark;
+
+    zzdk(zzcs zzcsVar, long j) {
+        this.zzarc = zzcsVar;
+        this.zzark = j;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        this.zzarc.zzgp().zzanp.set(this.zzark);
+        this.zzarc.zzgo().zzjk().zzg("Minimum session duration set", Long.valueOf(this.zzark));
+    }
+}

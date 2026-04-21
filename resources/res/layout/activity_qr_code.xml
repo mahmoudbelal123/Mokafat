@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/toolbar_qr_code"/>
+    <quadrant.mokafat.points.helper.HexagonMaskView
+        android:layout_gravity="center"
+        android:id="@+id/imageView_profile_in_qr_code"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="30dp"/>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/lightseagreen"
+            android:gravity="center"
+            android:id="@+id/textView_name_in_qr_code"
+            android:padding="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="mahmoud belal"/>
+        <TextView
+            android:textSize="16sp"
+            android:textColor="@color/darkgray"
+            android:gravity="center"
+            android:id="@+id/textView_mobile_in_qr_code"
+            android:padding="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mobile: 01221055515"/>
+        <TextView
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:textColor="@color/ashgrey"
+            android:gravity="center"
+            android:id="@+id/textView_corporate_name_in_qr_code"
+            android:padding="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coorporate Name"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:src="@drawable/line_after_qr"/>
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/imageView_qr_code_in_qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:src="@drawable/menu_qr_in"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="top|center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="0dp"
+            android:text="12210"/>
+        <TextView
+            android:textColor="@color/darkgray"
+            android:gravity="bottom|center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="0dp"
+            android:text="Please ask the agent to scan you QR code"/>
+    </LinearLayout>
+</LinearLayout>

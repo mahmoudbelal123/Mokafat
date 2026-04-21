@@ -1,0 +1,25 @@
+package com.google.firebase.iid;
+
+import android.os.IBinder;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+/* JADX INFO: loaded from: classes.dex */
+final class zzl implements Parcelable.Creator<zzk> {
+    zzl() {
+    }
+
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ zzk[] newArray(int i) {
+        return new zzk[i];
+    }
+
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ zzk createFromParcel(Parcel parcel) {
+        IBinder strongBinder = parcel.readStrongBinder();
+        if (strongBinder != null) {
+            return new zzk(strongBinder);
+        }
+        return null;
+    }
+}

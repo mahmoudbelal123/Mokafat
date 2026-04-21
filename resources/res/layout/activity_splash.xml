@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/splash_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="3">
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/splash_icon"
+        android:layout_weight="2.8"/>
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@color/brickred"
+        android:gravity="center"
+        android:id="@+id/textView_mokafat_web_site"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="@string/splash_text_bottom"
+        android:layout_weight="0.2"
+        android:layout_alignParentBottom="true"/>
+</LinearLayout>

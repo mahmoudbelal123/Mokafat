@@ -1,0 +1,26 @@
+package rx.internal.util;
+
+import java.util.concurrent.CountDownLatch;
+import rx.Subscription;
+import rx.annotations.Experimental;
+
+/* JADX INFO: loaded from: classes.dex */
+@Experimental
+public final class BlockingUtils {
+    private BlockingUtils() {
+    }
+
+    @Experimental
+    public static void awaitForComplete(CountDownLatch latch, Subscription subscription) {
+        if (latch.getCount() == 0) {
+            return;
+        }
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            subscription.unsubscribe();
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException("Interrupted while waiting for subscription to complete.", e);
+        }
+    }
+}
