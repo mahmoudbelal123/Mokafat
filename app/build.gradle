@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -42,7 +43,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.annotation:annotation:1.8.0'
-    implementation 'com.android.support:support-annotations:28.0.0'
 
     // Networking
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
@@ -75,7 +75,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-messaging:17.1.0'
 
-    // UI Libraries found in sources
+    // UI Libraries
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.github.GrenderG:Toasty:1.3.0'
     implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
