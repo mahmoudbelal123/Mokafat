@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import com.viewpagerindicator.CirclePageIndicator;
+import me.relex.circleindicator.CircleIndicator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +31,7 @@ import quadrant.mokafat.points.view.profile.sections_items.SectionsHomeItemsFrag
 /* JADX INFO: loaded from: classes.dex */
 public class SlidesFragment extends Fragment implements SlidesView, HomeSectionView {
     private static ViewPager mPager;
-    CirclePageIndicator indicator;
+    CircleIndicator indicator;
 
     @Inject
     HomeSectionPresenter mSectionPresenter;
@@ -69,7 +69,7 @@ public class SlidesFragment extends Fragment implements SlidesView, HomeSectionV
         this.recyclerView.setLayoutManager(mLayoutManager);
         this.recyclerView.setItemAnimator(new DefaultItemAnimator());
         this.recyclerView.setLayoutManager(mLayoutManager);
-        this.indicator = (CirclePageIndicator) this.view.findViewById(R.id.indicator);
+        this.indicator = (CircleIndicator) this.view.findViewById(R.id.indicator);
         ((DaggerApplication) getActivity().getApplication()).getAppComponent().inject(this);
         this.slidesPresenter.onAttach((SlidesView) this);
         this.mSectionPresenter.onAttach((HomeSectionView) this);
@@ -116,8 +116,6 @@ public class SlidesFragment extends Fragment implements SlidesView, HomeSectionV
     private void init(List<DataObjectDetails> getSlidesResponse) {
         mPager.setAdapter(new SlidingImage_Adapter(getActivity(), getSlidesResponse));
         this.indicator.setViewPager(mPager);
-        float density = getResources().getDisplayMetrics().density;
-        this.indicator.setRadius(3.0f * density);
         NUM_PAGES = getSlidesResponse.size();
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() { // from class: quadrant.mokafat.points.view.profile.get_profile.slides.SlidesFragment.2
@@ -135,19 +133,15 @@ public class SlidesFragment extends Fragment implements SlidesView, HomeSectionV
                 handler.post(Update);
             }
         }, 1600L, 1600L);
-        this.indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: quadrant.mokafat.points.view.profile.get_profile.slides.SlidesFragment.4
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
             public void onPageSelected(int position) {
-                int unused = SlidesFragment.currentPage = position;
+                currentPage = position;
             }
-
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int pos, float arg1, int arg2) {
-            }
-
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-            public void onPageScrollStateChanged(int pos) {
-            }
+            @Override
+            public void onPageScrolled(int pos, float arg1, int arg2) {}
+            @Override
+            public void onPageScrollStateChanged(int pos) {}
         });
     }
 
