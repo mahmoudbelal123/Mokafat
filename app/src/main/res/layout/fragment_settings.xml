@@ -3,7 +3,7 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <quadrant.mokafat.points.helper.HexagonMaskView
@@ -99,7 +99,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.145"/>
-        <android.support.design.internal.BaselineLayout
+        <com.google.android.material.internal.BaselineLayout
             android:id="@+id/baselineLayout"
             android:background="@drawable/menu_divider"
             android:layout_width="match_parent"
@@ -173,7 +173,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageView13"
             app:layout_constraintTop_toBottomOf="@+id/baselineLayout"
             app:layout_constraintVertical_bias="0.064"/>
-        <android.support.design.internal.BaselineLayout
+        <com.google.android.material.internal.BaselineLayout
             android:id="@+id/baselineLayout2"
             android:background="@drawable/menu_divider"
             android:layout_width="match_parent"
@@ -186,5 +186,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.409"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
