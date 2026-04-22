@@ -73,11 +73,22 @@ public class ChangePasswordPresenter implements BasePresenter<ChangePasswordView
                 ChangePasswordPresenter.this.mView.hideLoading();
             }
 
-            @Override // rx.Observer
-            public final void onError(Throwable e) {
-                ResponseBody responseBody = ((HttpException) e).response().errorBody();
-                ChangePasswordPresenter.this.mView.showErrorMessage(ChangePasswordPresenter.this.getErrorMessageForOldPassword(responseBody).toString());
-                ChangePasswordPresenter.this.mView.hideLoading();
+            @Override
+            public void onError(Throwable e) {
+                if (mView != null) mView.hideLoading();
+                if (e instanceof retrofit2.adapter.rxjava.HttpException) {
+                    try {
+                        okhttp3.ResponseBody rb = ((retrofit2.adapter.rxjava.HttpException) e).response().errorBody();
+                        if (mView != null && rb != null) { org.json.JSONObject obj = new org.json.JSONObject(rb.string()); mView.showErrorMessage(obj.optString("message", "Request failed")); }
+                        else if (mView != null) mView.showErrorMessage("Request failed");
+                    } catch (Exception ex) { if (mView != null) mView.showErrorMessage("Request failed"); }
+                } else if (e instanceof java.net.SocketTimeoutException) {
+                    if (mView != null) mView.showErrorMessage("Connection timed out. Please try again.");
+                } else if (e instanceof java.io.IOException) {
+                    if (mView != null) mView.showErrorMessage("Network error. Check your connection.");
+                } else {
+                    if (mView != null) mView.showErrorMessage("An error occurred. Please try again.");
+                }
             }
 
             @Override // rx.Observer
