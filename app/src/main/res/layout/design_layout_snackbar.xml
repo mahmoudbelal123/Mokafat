@@ -4,5 +4,5 @@
     android:layout_gravity="bottom"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    class="android.support.design.widget.Snackbar$SnackbarLayout"
+    class="com.google.android.material.snackbar.Snackbar$SnackbarLayout"
     style="@style/Widget.Design.Snackbar"/>
