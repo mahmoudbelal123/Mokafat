@@ -30,7 +30,7 @@
             android:name="io.fabric.ApiKey"
             android:value="AIzaSyCsKtynmdrYqIYlXFZA4Q_wMChyo3MC0gA"/>
         <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="quadrant.mokafat.points.view.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
@@ -40,12 +40,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="quadrant.mokafat.points.view.start_tour.StartTourActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="quadrant.mokafat.points.view.login.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
@@ -54,23 +54,23 @@
             android:name="quadrant.mokafat.points.view.profile.get_profile.ProfileActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="quadrant.mokafat.points.view.start_tour.slider.SliderActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="quadrant.mokafat.points.view.forget_password.ForgetPasswordActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="quadrant.mokafat.points.view.reset_password.ResetPasswordActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="quadrant.mokafat.points.view.change_password.ChangePasswordActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="quadrant.mokafat.points.view.get_vouchers_tab_setting.get_all_items.GetVouchersTabsActivity"
             android:screenOrientation="portrait"/>
         <meta-data
