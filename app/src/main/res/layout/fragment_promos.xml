@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -127,8 +127,8 @@
                 android:layout_height="wrap_content"
                 android:text="Points Earned"/>
         </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
-    <android.support.v7.widget.RecyclerView
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView_promos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
