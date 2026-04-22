@@ -94,7 +94,7 @@
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="65dp"
@@ -104,7 +104,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_gravity="center"
                 android:orientation="horizontal"
                 android:id="@+id/picker"
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:textDirection="rtl"
                 android:layoutDirection="ltr"/>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
         <FrameLayout
             android:id="@+id/framelayout_container"
             android:layout_width="match_parent"
