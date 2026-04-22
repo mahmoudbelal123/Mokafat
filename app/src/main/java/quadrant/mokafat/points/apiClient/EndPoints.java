@@ -2,7 +2,7 @@ package quadrant.mokafat.points.apiClient;
 
 /* JADX INFO: loaded from: classes.dex */
 public class EndPoints {
-    public static final String BASE_URL = "http://199.247.4.89/mokafat/dev/public/api/";
+    public static final String BASE_URL = "https://annqbhgcbtcfobxhgqzd.supabase.co/functions/v1/api/";
     public static final String CHANGE_PASSWORD = "users/change-password";
     public static final String EDIT_PROFILE = "users/edit-account";
     public static final String FAVORITE = "items/favorites";
@@ -29,7 +29,7 @@ public class EndPoints {
     public static final String IMAGE_SIZE_LARGE = "large/";
     public static final String IMAGE_SIZE_MEDIUM = "medium/";
     public static final String IMAGE_SIZE_SMALL = "small/";
-    public static final String IMAGE_URL = "http://199.247.4.89/mokafat/dev/public/uploads/";
+    public static final String IMAGE_URL = "https://annqbhgcbtcfobxhgqzd.supabase.co/storage/v1/object/public/uploads/";
     public static final String LOGIN = "auth/login";
     public static final String LOGOUT = "users/logout";
     public static final String MOKAFAT_URL = "https://www.mokafat.com/";
