@@ -2,6 +2,8 @@ package quadrant.mokafat.points.view.login;
 
 import android.content.Context;
 import es.dmoral.toasty.Toasty;
+import java.io.IOException;
+import java.net.SocketTimeoutException;
 import javax.inject.Inject;
 import okhttp3.ResponseBody;
 import org.json.JSONObject;
@@ -17,7 +19,6 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-/* JADX INFO: loaded from: classes.dex */
 public class LoginPresenter implements BasePresenter<LoginView> {
     boolean isLoaded = false;
 
@@ -29,13 +30,13 @@ public class LoginPresenter implements BasePresenter<LoginView> {
     loginRequest mLoginRequest;
     LoginView mView;
 
-    @Override // quadrant.mokafat.points.baseClass.BasePresenter
+    @Override
     public void onAttach(LoginView view) {
         this.mView = view;
         this.mView.onAttache();
     }
 
-    @Override // quadrant.mokafat.points.baseClass.BasePresenter
+    @Override
     public void onDetach() {
         this.mView = null;
     }
@@ -49,10 +50,6 @@ public class LoginPresenter implements BasePresenter<LoginView> {
             if (!Utilities.checkConnection(this.mContext)) {
                 this.mView.showErrorMessage(this.mContext.getString(R.string.internet_check));
                 checkConnection(false);
-                return;
-            }
-            if (!Utilities.checkConnection(this.mContext)) {
-                Toasty.info(this.mContext, this.mContext.getString(R.string.internet_check), 6000, true).show();
                 return;
             }
             if (this.mView.getUserName().equals("")) {
@@ -77,31 +74,45 @@ public class LoginPresenter implements BasePresenter<LoginView> {
             this.mLoginRequest.setDevice_id(this.mView.getDeviceIdentifier());
             this.mLoginRequest.setPassword(this.mView.getPassword());
             this.mLoginRequest.setUsername(this.mView.getUserName());
-            this.mApiInterface.loginObservable(this.mLoginRequest).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe((Subscriber<? super loginResponse>) new Subscriber<loginResponse>() { // from class: quadrant.mokafat.points.view.login.LoginPresenter.1
-                @Override // rx.Observer
-                public final void onCompleted() {
-                    LoginPresenter.this.mView.hideLoading();
-                }
-
-                @Override // rx.Observer
-                public final void onError(Throwable e) {
-                    ResponseBody responseBody = ((HttpException) e).response().errorBody();
-                    LoginPresenter.this.mView.showErrorMessage(LoginPresenter.this.getErrorMessage(responseBody).toString());
-                    LoginPresenter.this.mView.hideLoading();
-                }
-
-                @Override // rx.Observer
-                public final void onNext(loginResponse response) {
-                    LoginPresenter.this.isLoaded = true;
-                    if (response.getData().getEmail().equals(LoginPresenter.this.mView.getUserName()) || response.getData().getMobile().equals(LoginPresenter.this.mView.getUserName())) {
-                        Utilities.saveUserInfoSharedPreferences(LoginPresenter.this.mContext, response);
-                        LoginPresenter.this.mView.showActivity();
-                    } else {
-                        LoginPresenter.this.mView.showErrorMessage(response.getMessage());
+            this.mApiInterface.loginObservable(this.mLoginRequest)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<loginResponse>() {
+                    @Override
+                    public void onCompleted() {
                         LoginPresenter.this.mView.hideLoading();
                     }
-                }
-            });
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LoginPresenter.this.mView.hideLoading();
+                        if (e instanceof HttpException) {
+                            ResponseBody responseBody = ((HttpException) e).response().errorBody();
+                            LoginPresenter.this.mView.showErrorMessage(LoginPresenter.this.getErrorMessage(responseBody));
+                        } else if (e instanceof SocketTimeoutException) {
+                            LoginPresenter.this.mView.showErrorMessage("Connection timed out. Please try again.");
+                        } else if (e instanceof IOException) {
+                            LoginPresenter.this.mView.showErrorMessage("Network error. Check your connection.");
+                        } else {
+                            LoginPresenter.this.mView.showErrorMessage("An error occurred. Please try again.");
+                        }
+                    }
+
+                    @Override
+                    public void onNext(loginResponse response) {
+                        LoginPresenter.this.isLoaded = true;
+                        if (response != null && response.getData() != null && response.getToken() != null) {
+                            Utilities.saveUserInfoSharedPreferences(LoginPresenter.this.mContext, response);
+                            LoginPresenter.this.mView.showActivity();
+                        } else {
+                            LoginPresenter.this.mView.showErrorMessage(
+                                response != null && response.getMessage() != null
+                                    ? response.getMessage()
+                                    : "Login failed. Please try again.");
+                            LoginPresenter.this.mView.hideLoading();
+                        }
+                    }
+                });
         } catch (Exception e) {
             this.mView.showErrorMessage("Error, try again");
         }
@@ -118,7 +129,6 @@ public class LoginPresenter implements BasePresenter<LoginView> {
         if (isConnected && !this.isLoaded) {
             doLoginPresenter();
             this.isLoaded = false;
-            this.mView.showErrorMessage("internet connected");
         }
         if (!isConnected && this.isLoaded) {
             this.mView.showErrorMessage("offline");
@@ -127,13 +137,12 @@ public class LoginPresenter implements BasePresenter<LoginView> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String getErrorMessage(ResponseBody responseBody) {
+    private String getErrorMessage(ResponseBody responseBody) {
         try {
             JSONObject jsonObject = new JSONObject(responseBody.string());
             return jsonObject.getString("message");
         } catch (Exception e) {
-            return e.getMessage();
+            return e.getMessage() != null ? e.getMessage() : "Unknown error";
         }
     }
 }
