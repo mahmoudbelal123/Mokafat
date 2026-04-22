@@ -1,43 +1,86 @@
 package quadrant.mokafat.points.view.splash;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import quadrant.mokafat.points.R;
+import androidx.appcompat.app.AppCompatActivity;
 import quadrant.mokafat.points.apiClient.EndPoints;
 import quadrant.mokafat.points.view.start_tour.StartTourActivity;
 
-/* JADX INFO: loaded from: classes.dex */
 public class SplashActivity extends AppCompatActivity implements View.OnClickListener {
+
     private TextView mWebSiteTxt;
     private Intent myIntent;
 
-    @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        this.myIntent = new Intent(this, (Class<?>) StartTourActivity.class);
-        this.mWebSiteTxt = (TextView) findViewById(R.id.textView_mokafat_web_site);
-        this.mWebSiteTxt.setOnClickListener(this);
-        new Handler().postDelayed(new Runnable() { // from class: quadrant.mokafat.points.view.splash.SplashActivity.1
-            @Override // java.lang.Runnable
+
+        // Build layout programmatically to avoid R.layout dependency issues
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+        root.setGravity(Gravity.CENTER);
+        root.setBackgroundColor(Color.parseColor("#c42b3a"));
+
+        LinearLayout.LayoutParams rootParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        root.setLayoutParams(rootParams);
+
+        // Logo placeholder
+        ImageView logo = new ImageView(this);
+        LinearLayout.LayoutParams logoParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        logoParams.weight = 1f;
+        logoParams.gravity = Gravity.CENTER;
+        logo.setLayoutParams(logoParams);
+
+        int drawableId = getResources().getIdentifier("splash_icon", "drawable", getPackageName());
+        if (drawableId != 0) {
+            logo.setImageResource(drawableId);
+        }
+
+        // Website text
+        mWebSiteTxt = new TextView(this);
+        mWebSiteTxt.setId(android.R.id.text1);
+        mWebSiteTxt.setText("© Copyright Mokafat www.mokafat.com 2018");
+        mWebSiteTxt.setTextColor(Color.WHITE);
+        mWebSiteTxt.setTextSize(12f);
+        mWebSiteTxt.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams txtParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        txtParams.bottomMargin = 32;
+        mWebSiteTxt.setLayoutParams(txtParams);
+        mWebSiteTxt.setOnClickListener(this);
+
+        root.addView(logo);
+        root.addView(mWebSiteTxt);
+
+        setContentView(root);
+
+        myIntent = new Intent(this, StartTourActivity.class);
+        new Handler().postDelayed(new Runnable() {
+            @Override
             public void run() {
-                SplashActivity.this.startActivity(SplashActivity.this.myIntent);
-                SplashActivity.this.finish();
+                startActivity(myIntent);
+                finish();
             }
         }, 2000L);
     }
 
-    @Override // android.view.View.OnClickListener
+    @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.textView_mokafat_web_site) {
-            Intent intent = new Intent("android.intent.action.VIEW");
-            intent.setData(Uri.parse(EndPoints.MOKAFAT_URL));
-            startActivity(intent);
-        }
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(EndPoints.MOKAFAT_URL));
+        startActivity(intent);
     }
 }
