@@ -1,7 +1,7 @@
 package quadrant.mokafat.points.view.get_vouchers_tab_setting.get_all_items;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import quadrant.mokafat.points.R;
 
 /* JADX INFO: loaded from: classes.dex */

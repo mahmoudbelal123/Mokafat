@@ -1,7 +1,7 @@
 package quadrant.mokafat.points.view.sections.get_all_sections;
 
 import android.content.Context;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +65,7 @@ public class SectionAdapter extends BaseAdapter {
             TextView sectionVendors = (TextView) grid.findViewById(R.id.textView16_vendors);
             TextView sectionOffers = (TextView) grid.findViewById(R.id.textView18_offers);
             sectionTitle.setText(this.sectionsResponseList.get(position).getAttributes().getTitle());
-            GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.sectionsResponseList.get(position).getAttributes().getMain_image()).into(os_img);
+            GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.sectionsResponseList.get(position).getAttributes().getMain_image()).into(os_img);
             sectionVendors.setText(this.sectionsResponseList.get(position).getAttributes().getTotal_vendors());
             sectionOffers.setText(this.sectionsResponseList.get(position).getAttributes().getTotal_offers());
             grid.setOnClickListener(new View.OnClickListener() { // from class: quadrant.mokafat.points.view.sections.get_all_sections.SectionAdapter.1

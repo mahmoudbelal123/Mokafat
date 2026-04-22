@@ -1,8 +1,8 @@
 package quadrant.mokafat.points.view.get_location_map.near_by_tabs.near_by_tabs_adapter.tab1;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ import quadrant.mokafat.points.R;
 import quadrant.mokafat.points.models.objects.get_branches.GetBranchesResponse;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ItemsVendorAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class ItemsVendorAdapter extends RecyclerView.Adapter<ItemsVendorAdapter.MyViewHolder> {
     private Context context;
     private List<GetBranchesResponse> listItemsSubSections;
 

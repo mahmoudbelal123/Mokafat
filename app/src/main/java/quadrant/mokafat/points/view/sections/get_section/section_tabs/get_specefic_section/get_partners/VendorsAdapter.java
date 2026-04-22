@@ -2,7 +2,7 @@ package quadrant.mokafat.points.view.sections.get_section.section_tabs.get_spece
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,7 @@ import quadrant.mokafat.points.models.objects.get_vendors.partnersObject;
 import quadrant.mokafat.points.view.single_partner_details.SinglePartnerActivity;
 
 /* JADX INFO: loaded from: classes.dex */
-public class VendorsAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class VendorsAdapter extends RecyclerView.Adapter<VendorsAdapter.MyViewHolder> {
     private Context context;
     private List<partnersObject> listVendors;
 
@@ -49,7 +49,7 @@ public class VendorsAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.vendorTitle.setText(this.listVendors.get(position).getAttributes().getTitle());
-        GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/small/" + this.listVendors.get(position).getAttributes().getLogo()).into(holder.vendorLogo);
+        GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/small/" + this.listVendors.get(position).getAttributes().getLogo()).into(holder.vendorLogo);
         holder.constraintLayoutRow.setOnClickListener(new View.OnClickListener() { // from class: quadrant.mokafat.points.view.sections.get_section.section_tabs.get_specefic_section.get_partners.VendorsAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {

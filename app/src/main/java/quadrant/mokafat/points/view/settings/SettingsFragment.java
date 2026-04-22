@@ -8,11 +8,11 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -202,7 +202,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
     @Override // quadrant.mokafat.points.view.profile.get_profile.ProfileView
     public void showResponse(ProfileResponse profileResponse) {
-        GlideApp.with(getActivity()).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + profileResponse.getData().getMain_image()).into(this.hexagonMaskView);
+        GlideApp.with(getActivity()).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + profileResponse.getData().getMain_image()).into(this.hexagonMaskView);
         this.nameTxt.setText(profileResponse.getData().getName());
         this.mobileTxt.setText(profileResponse.getData().getMobile());
         this.corporateTxt.setText(Utilities.retrieveUserInfoSharedPreferences(getActivity()).getData().getVendor().getTitle());
@@ -220,7 +220,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
     @Override // quadrant.mokafat.points.view.profile.get_profile.ProfileView
     public void setProfileImage(String urlImage) {
-        GlideApp.with(getActivity()).load2(urlImage).into(this.hexagonMaskView);
+        GlideApp.with(getActivity()).load(urlImage).into(this.hexagonMaskView);
     }
 
     @Override // quadrant.mokafat.points.view.profile.get_profile.ProfileView

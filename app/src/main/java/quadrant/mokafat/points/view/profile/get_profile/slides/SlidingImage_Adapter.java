@@ -2,7 +2,7 @@ package quadrant.mokafat.points.view.profile.get_profile.slides;
 
 import android.content.Context;
 import android.os.Parcelable;
-import android.support.v4.view.PagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +39,7 @@ public class SlidingImage_Adapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup view, int position) {
         View imageLayout = this.inflater.inflate(R.layout.slidingimages_layout, view, false);
         ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
-        GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.imageModelArrayList.get(position).getAttributes().getMain_image()).into(imageView);
+        GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.imageModelArrayList.get(position).getAttributes().getMain_image()).into(imageView);
         view.addView(imageLayout, 0);
         return imageLayout;
     }

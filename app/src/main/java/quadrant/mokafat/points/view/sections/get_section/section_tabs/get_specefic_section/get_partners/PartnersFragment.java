@@ -1,10 +1,10 @@
 package quadrant.mokafat.points.view.sections.get_section.section_tabs.get_specefic_section.get_partners;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +43,7 @@ public class PartnersFragment extends Fragment implements PartnersView {
         this.offersSection = (TextView) this.view.findViewById(R.id.textView18_offers);
         this.progressBarLoadingPartners = (ProgressBar) this.view.findViewById(R.id.progressbar_load_partner_for_section);
         this.recyclerViewPartners = (RecyclerView) this.view.findViewById(R.id.recycle_view_partners);
-        GlideApp.with(getActivity()).load2(Utilities.retrievePartnerImage(getContext())).into(this.imageViewSection);
+        GlideApp.with(getActivity()).load(Utilities.retrievePartnerImage(getContext())).into(this.imageViewSection);
         this.titleSection.setText(Utilities.retrievePartnerTitle(getActivity()));
         this.vendorsSection.setText(Utilities.retrievePartnerVendors(getActivity()));
         this.offersSection.setText(Utilities.retrievePartnerOffers(getActivity()));

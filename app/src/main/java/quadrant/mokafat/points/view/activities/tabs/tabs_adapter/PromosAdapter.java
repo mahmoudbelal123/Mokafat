@@ -1,7 +1,7 @@
 package quadrant.mokafat.points.view.activities.tabs.tabs_adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,7 @@ import quadrant.mokafat.points.R;
 import quadrant.mokafat.points.models.objects.redemptions.DataObjectDetails;
 
 /* JADX INFO: loaded from: classes.dex */
-public class PromosAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class PromosAdapter extends RecyclerView.Adapter<PromosAdapter.MyViewHolder> {
     private Context context;
     private List<DataObjectDetails> listPromos;
 

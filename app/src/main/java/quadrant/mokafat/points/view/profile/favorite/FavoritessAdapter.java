@@ -1,7 +1,7 @@
 package quadrant.mokafat.points.view.profile.favorite;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,7 @@ import quadrant.mokafat.points.R;
 import quadrant.mokafat.points.models.objects.favorite.DataObjectDetails;
 
 /* JADX INFO: loaded from: classes.dex */
-public class FavoritessAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class FavoritessAdapter extends RecyclerView.Adapter<FavoritessAdapter.MyViewHolder> {
     private Context context;
     private List<DataObjectDetails> list;
     private final OnItemClickListener listener;

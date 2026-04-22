@@ -1,7 +1,7 @@
 package quadrant.mokafat.points.view.sections;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import quadrant.mokafat.points.R;
 
 /* JADX INFO: loaded from: classes.dex */

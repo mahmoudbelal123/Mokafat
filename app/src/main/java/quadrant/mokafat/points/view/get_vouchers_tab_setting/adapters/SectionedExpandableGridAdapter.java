@@ -1,8 +1,8 @@
 package quadrant.mokafat.points.view.get_vouchers_tab_setting.adapters;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +15,7 @@ import quadrant.mokafat.points.models.objects.get_vouchers_tab.AttributesObjectD
 import quadrant.mokafat.points.view.get_vouchers_tab_setting.models.Item;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<SectionedExpandableGridAdapter.ViewHolder> {
     private static final int VIEW_TYPE_ITEM = 2131427444;
     private static final int VIEW_TYPE_SECTION = 2131427445;
     private final Context mContext;

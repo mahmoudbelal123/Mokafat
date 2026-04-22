@@ -2,8 +2,8 @@ package quadrant.mokafat.points.view.sections.inside_items;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -82,7 +82,7 @@ public class ItemsInsideSubsectionsActivity extends AppCompatActivity implements
             this.title = getIntent().getStringExtra("title");
             this.imageUrl = getIntent().getStringExtra("deal_image");
             this.titleTxt.setText(this.title);
-            GlideApp.with((FragmentActivity) this).load2(this.imageUrl).into(this.dealImage);
+            GlideApp.with((FragmentActivity) this).load(this.imageUrl).into(this.dealImage);
         }
     }
 
@@ -150,8 +150,8 @@ public class ItemsInsideSubsectionsActivity extends AppCompatActivity implements
         this.title = dataForItem.getData().getAttributes().getTitle();
         this.imageUrl = dataForItem.getData().getAttributes().getMain_image();
         this.titleTxt.setText(this.title);
-        GlideApp.with((FragmentActivity) this).load2(this.imageUrl).into(this.dealImage);
-        GlideApp.with((FragmentActivity) this).load2(dataForItem.getData().getRelationships().getVendor().getAttributes().getLogo()).into(this.vendorImage);
+        GlideApp.with((FragmentActivity) this).load(this.imageUrl).into(this.dealImage);
+        GlideApp.with((FragmentActivity) this).load(dataForItem.getData().getRelationships().getVendor().getAttributes().getLogo()).into(this.vendorImage);
         this.mokafatPrice.setText(dataForItem.getData().getAttributes().getFinal_price());
         this.oldPrice.setText(dataForItem.getData().getAttributes().getOld_price());
         this.titleTxtItem.setText(dataForItem.getData().getAttributes().getTitle());

@@ -2,8 +2,8 @@ package quadrant.mokafat.points.view.sections.get_section.section_tabs.get_items
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,7 @@ import quadrant.mokafat.points.models.objects.get_sections.get_items_for_sub_sec
 import quadrant.mokafat.points.view.sections.inside_items.ItemsInsideSubsectionsActivity;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ItemsSubSectionsAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class ItemsSubSectionsAdapter extends RecyclerView.Adapter<ItemsSubSectionsAdapter.MyViewHolder> {
     private Context context;
     View itemView;
     private List<DataItemsDetails> listItemsSubSections;
@@ -63,13 +63,13 @@ public class ItemsSubSectionsAdapter extends RecyclerView.Adapter<MyViewHolder> 
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listItemsSubSections.get(position).getRelationshipsDetails().getVendor().getAttributes().getLogo()).into(holder.vendorLogo);
+        GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listItemsSubSections.get(position).getRelationshipsDetails().getVendor().getAttributes().getLogo()).into(holder.vendorLogo);
         holder.roomTypeTxt.setText(this.listItemsSubSections.get(position).getAttributes().getContent());
         holder.cityTxt.setText(this.listItemsSubSections.get(position).getAttributes().getSummary());
         holder.finalPriceTxt.setText(this.listItemsSubSections.get(position).getAttributes().getFinal_price());
         holder.startDateTxt.setText(this.listItemsSubSections.get(position).getAttributes().getEnd_date());
         holder.oldPriceTxt.setText(this.listItemsSubSections.get(position).getAttributes().getOld_price());
-        GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listItemsSubSections.get(position).getAttributes().getMain_image()).into(holder.itemImage);
+        GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listItemsSubSections.get(position).getAttributes().getMain_image()).into(holder.itemImage);
         holder.itemMainTitleTxt.setText(this.listItemsSubSections.get(position).getAttributes().getTitle());
         holder.mCardContainer.setOnClickListener(new View.OnClickListener() { // from class: quadrant.mokafat.points.view.sections.get_section.section_tabs.get_items_for_sub_sections.ItemsSubSectionsAdapter.1
             @Override // android.view.View.OnClickListener

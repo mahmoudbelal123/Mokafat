@@ -8,18 +8,18 @@ import android.graphics.drawable.ColorDrawable;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -138,8 +138,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     protected void onRestart() {
         super.onRestart();
         if (this.editAccountResponse.getData() != null) {
-            GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getMain_image()).into(this.mProfileImage);
-            GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getQr_image()).into(this.mQrCodeImage);
+            GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getMain_image()).into(this.mProfileImage);
+            GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getQr_image()).into(this.mQrCodeImage);
             this.mNameTxt.setText(this.editAccountResponse.getData().getName());
             this.mMobileNumberTxt.setText(this.editAccountResponse.getData().getMobile());
         }
@@ -149,8 +149,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     protected void onResume() {
         super.onResume();
         if (this.editAccountResponse.getData() != null) {
-            GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getMain_image()).into(this.mProfileImage);
-            GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getQr_image()).into(this.mQrCodeImage);
+            GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getMain_image()).into(this.mProfileImage);
+            GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getQr_image()).into(this.mQrCodeImage);
             this.mNameTxt.setText(this.editAccountResponse.getData().getName());
             this.mMobileNumberTxt.setText(this.editAccountResponse.getData().getMobile());
         }
@@ -332,8 +332,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
     @Override // quadrant.mokafat.points.view.profile.get_profile.ProfileView
     public void showResponse(ProfileResponse profileResponse) {
-        GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + profileResponse.getData().getMain_image()).into(this.mProfileImage);
-        GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + profileResponse.getData().getQr_image()).into(this.mQrCodeImage);
+        GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + profileResponse.getData().getMain_image()).into(this.mProfileImage);
+        GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + profileResponse.getData().getQr_image()).into(this.mQrCodeImage);
         this.mNameTxt.setText(profileResponse.getData().getName());
         this.mMobileNumberTxt.setText(profileResponse.getData().getMobile());
     }
@@ -585,8 +585,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     protected void onPostResume() {
         super.onPostResume();
         if (this.editAccountResponse.getData() != null) {
-            GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getMain_image()).into(this.mProfileImage);
-            GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getQr_image()).into(this.mQrCodeImage);
+            GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getMain_image()).into(this.mProfileImage);
+            GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getQr_image()).into(this.mQrCodeImage);
             this.mNameTxt.setText(this.editAccountResponse.getData().getName());
             this.mMobileNumberTxt.setText(this.editAccountResponse.getData().getMobile());
         }
@@ -596,8 +596,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     protected void onResumeFragments() {
         super.onResumeFragments();
         if (this.editAccountResponse.getData() != null) {
-            GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getMain_image()).into(this.mProfileImage);
-            GlideApp.with((FragmentActivity) this).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getQr_image()).into(this.mQrCodeImage);
+            GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getMain_image()).into(this.mProfileImage);
+            GlideApp.with((FragmentActivity) this).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.editAccountResponse.getData().getQr_image()).into(this.mQrCodeImage);
             this.mNameTxt.setText(this.editAccountResponse.getData().getName());
             this.mMobileNumberTxt.setText(this.editAccountResponse.getData().getMobile());
         }

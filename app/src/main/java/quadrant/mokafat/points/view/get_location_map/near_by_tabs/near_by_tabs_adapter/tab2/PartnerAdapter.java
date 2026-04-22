@@ -1,7 +1,7 @@
 package quadrant.mokafat.points.view.get_location_map.near_by_tabs.near_by_tabs_adapter.tab2;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ import quadrant.mokafat.points.helper.GlideApp;
 import quadrant.mokafat.points.models.objects.get_branches.GetBranchesResponse;
 
 /* JADX INFO: loaded from: classes.dex */
-public class PartnerAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class PartnerAdapter extends RecyclerView.Adapter<PartnerAdapter.MyViewHolder> {
     private Context context;
     private List<GetBranchesResponse> listItemsSubSections;
 
@@ -42,7 +42,7 @@ public class PartnerAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.vendorTitle.setText(this.listItemsSubSections.get(position).getRelationships().getVendors().getAttributes().getTitle());
-        GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listItemsSubSections.get(position).getRelationships().getVendors().getAttributes().getLogo()).into(holder.vendorLogo);
+        GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listItemsSubSections.get(position).getRelationships().getVendors().getAttributes().getLogo()).into(holder.vendorLogo);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter

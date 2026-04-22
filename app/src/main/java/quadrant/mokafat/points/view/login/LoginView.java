@@ -6,7 +6,7 @@ import quadrant.mokafat.points.baseClass.BaseView;
 public interface LoginView extends BaseView {
     String getDevice();
 
-    String getDeviceId();
+    String getDeviceIdentifier();
 
     String getPassword();
 

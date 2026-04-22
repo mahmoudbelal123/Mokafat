@@ -1,10 +1,10 @@
 package quadrant.mokafat.points.view.sections.get_section.section_tabs.get_specefic_section.get_hot_deals;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +79,7 @@ public class HotDealsFragment extends Fragment implements HotDealsView {
         this.titleSection.setText(getSectionsBySectionIdResponse.getAttributes().getTitle());
         this.sectionVendors.setText(getSectionsBySectionIdResponse.getAttributes().getTotal_vendors());
         this.sectionsOffers.setText(getSectionsBySectionIdResponse.getAttributes().getTotal_offers());
-        GlideApp.with(getActivity()).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + getSectionsBySectionIdResponse.getAttributes().getMain_image()).into(this.sectionImage);
+        GlideApp.with(getActivity()).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + getSectionsBySectionIdResponse.getAttributes().getMain_image()).into(this.sectionImage);
         this.adapter = new SubSectionsAdapter(getSectionsBySectionIdResponse.getRelationships().getChildrens(), getActivity(), this);
         this.recyclerView.setAdapter(this.adapter);
     }

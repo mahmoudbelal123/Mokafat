@@ -1,8 +1,8 @@
 package quadrant.mokafat.points.view.sections.get_section.section_tabs.get_specefic_section;
 
 import android.content.Context;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,7 @@ import quadrant.mokafat.points.view.sections.get_section.section_tabs.get_items_
 import quadrant.mokafat.points.view.sections.get_section.section_tabs.get_specefic_section.get_hot_deals.HotDealsFragment;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SubSectionsAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class SubSectionsAdapter extends RecyclerView.Adapter<SubSectionsAdapter.MyViewHolder> {
     private Context context;
     boolean flag = false;
     HotDealsFragment hotDealsFragment;
@@ -63,7 +63,7 @@ public class SubSectionsAdapter extends RecyclerView.Adapter<MyViewHolder> {
             holder.subSectionTitle.setText(this.listSubSections.get(position).getAttributes().getTitle());
             holder.subSectionTitle.setTextColor(-3355444);
         } else {
-            GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listSubSections.get(position).getAttributes().getIcon_selected()).into(holder.subSectionImage);
+            GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listSubSections.get(position).getAttributes().getIcon_selected()).into(holder.subSectionImage);
             holder.subSectionTitle.setText(this.listSubSections.get(position).getAttributes().getTitle());
             holder.subSectionTitle.setTextColor(-1);
         }

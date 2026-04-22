@@ -1,7 +1,7 @@
 package quadrant.mokafat.points.view.profile.get_profile.get_home_sections;
 
 import android.content.Context;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +60,7 @@ public class HomeSectionAdapter extends BaseAdapter {
         holder.imageSection = (ImageView) rowView.findViewById(R.id.imageView_section_home);
         holder.sectionTitle = (TextView) rowView.findViewById(R.id.textView11_section_title);
         holder.sectionTitle.setText(this.sectionsResponseList.get(position).getAttributes().getTitle());
-        GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.sectionsResponseList.get(position).getAttributes().getMain_image()).into(holder.imageSection);
+        GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.sectionsResponseList.get(position).getAttributes().getMain_image()).into(holder.imageSection);
         rowView.setOnClickListener(new View.OnClickListener() { // from class: quadrant.mokafat.points.view.profile.get_profile.get_home_sections.HomeSectionAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {

@@ -1,8 +1,8 @@
 package quadrant.mokafat.points.view.get_vouchers_tab_setting.adapters;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;

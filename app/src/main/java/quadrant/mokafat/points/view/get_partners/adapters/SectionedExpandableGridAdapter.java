@@ -2,8 +2,8 @@ package quadrant.mokafat.points.view.get_partners.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +20,7 @@ import quadrant.mokafat.points.view.get_vouchers_tab_setting.models.Item;
 import quadrant.mokafat.points.view.single_partner_details.SinglePartnerActivity;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<SectionedExpandableGridAdapter.ViewHolder> {
     private static final int VIEW_TYPE_ITEM = 2131427434;
     private static final int VIEW_TYPE_SECTION = 2131427445;
     private final Context mContext;
@@ -79,7 +79,7 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<ViewHol
             return;
         }
         final Item item = (Item) this.mDataArrayList.get(position);
-        GlideApp.with(this.mContext).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + item.getLogoUrl()).into(holder.partnerImage);
+        GlideApp.with(this.mContext).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + item.getLogoUrl()).into(holder.partnerImage);
         holder.titleTxt.setText(item.getName());
         holder.view.setOnClickListener(new View.OnClickListener() { // from class: quadrant.mokafat.points.view.get_partners.adapters.SectionedExpandableGridAdapter.2
             @Override // android.view.View.OnClickListener

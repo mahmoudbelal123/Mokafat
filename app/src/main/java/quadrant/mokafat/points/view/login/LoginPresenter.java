@@ -67,14 +67,14 @@ public class LoginPresenter implements BasePresenter<LoginView> {
                 Toasty.error(this.mContext, "can`t Get Device Type", 6000, true).show();
                 return;
             }
-            if (this.mView.getDeviceId().equals("")) {
+            if (this.mView.getDeviceIdentifier().equals("")) {
                 Toasty.error(this.mContext, "can`t Get Device ID", 6000, true).show();
                 return;
             }
             this.mView.showLoading();
             this.mLoginRequest = new loginRequest();
             this.mLoginRequest.setDevice(this.mView.getDevice());
-            this.mLoginRequest.setDevice_id(this.mView.getDeviceId());
+            this.mLoginRequest.setDevice_id(this.mView.getDeviceIdentifier());
             this.mLoginRequest.setPassword(this.mView.getPassword());
             this.mLoginRequest.setUsername(this.mView.getUserName());
             this.mApiInterface.loginObservable(this.mLoginRequest).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe((Subscriber<? super loginResponse>) new Subscriber<loginResponse>() { // from class: quadrant.mokafat.points.view.login.LoginPresenter.1

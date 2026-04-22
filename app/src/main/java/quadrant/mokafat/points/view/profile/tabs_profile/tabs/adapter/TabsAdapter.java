@@ -1,8 +1,8 @@
 package quadrant.mokafat.points.view.profile.tabs_profile.tabs.adapter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import quadrant.mokafat.points.view.profile.tabs_profile.tabs.TabOneFragment;
 import quadrant.mokafat.points.view.profile.tabs_profile.tabs.TabThreeFragment;
 import quadrant.mokafat.points.view.profile.tabs_profile.tabs.TabTwoFragment;

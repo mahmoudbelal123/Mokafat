@@ -1,8 +1,8 @@
 package quadrant.mokafat.points.view.profile.sections_items;
 
 import android.content.Context;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,7 @@ import quadrant.mokafat.points.models.objects.get_sections.DataObjectDetails;
 import quadrant.mokafat.points.view.sections.get_section.section_tabs.get_items_for_sub_sections.GetItemsSubSectionsFragment;
 
 /* JADX INFO: loaded from: classes.dex */
-public class RecycleSectionsItemsAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class RecycleSectionsItemsAdapter extends RecyclerView.Adapter<RecycleSectionsItemsAdapter.MyViewHolder> {
     private Context context;
     boolean flag = false;
     SectionsHomeItemsFragment sectionsHomeItemsFragment;

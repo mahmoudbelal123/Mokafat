@@ -1,8 +1,8 @@
 package quadrant.mokafat.points.view.qr_code;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -76,12 +76,12 @@ public class QrCodeActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override // quadrant.mokafat.points.view.qr_code.QrCodeView
     public void showProfileImage(String profileUrl) {
-        GlideApp.with((FragmentActivity) this).load2(profileUrl).into(this.mProfileImage);
+        GlideApp.with((FragmentActivity) this).load(profileUrl).into(this.mProfileImage);
     }
 
     @Override // quadrant.mokafat.points.view.qr_code.QrCodeView
     public void showQrCodeImage(String QrCodeUrl) {
-        GlideApp.with((FragmentActivity) this).load2(QrCodeUrl).into(this.mQrCodeImage);
+        GlideApp.with((FragmentActivity) this).load(QrCodeUrl).into(this.mQrCodeImage);
     }
 
     @Override // quadrant.mokafat.points.view.qr_code.QrCodeView

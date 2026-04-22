@@ -8,10 +8,10 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -319,7 +319,7 @@ public class TabOneFragment extends Fragment implements ProfileView, View.OnClic
 
     @Override // quadrant.mokafat.points.view.profile.get_profile.ProfileView
     public void showResponse(ProfileResponse profileResponse) {
-        GlideApp.with(getActivity()).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + profileResponse.getData().getMain_image()).into(this.hexagonMaskView);
+        GlideApp.with(getActivity()).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + profileResponse.getData().getMain_image()).into(this.hexagonMaskView);
         this.mEmailEdit.setText(profileResponse.getData().getEmail());
         this.mMobileEdit.setText(profileResponse.getData().getMobile());
         this.mNameEdit.setText(profileResponse.getData().getName());
@@ -355,7 +355,7 @@ public class TabOneFragment extends Fragment implements ProfileView, View.OnClic
 
     @Override // quadrant.mokafat.points.view.profile.edit_account.EditAccountView
     public void showResponse(EditAccountResponse editAccountResponse) {
-        GlideApp.with(getActivity()).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + editAccountResponse.getData().getMain_image()).into(this.hexagonMaskView);
+        GlideApp.with(getActivity()).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + editAccountResponse.getData().getMain_image()).into(this.hexagonMaskView);
     }
 
     @Override // quadrant.mokafat.points.view.profile.get_profile.ProfileView
@@ -365,7 +365,7 @@ public class TabOneFragment extends Fragment implements ProfileView, View.OnClic
 
     @Override // quadrant.mokafat.points.view.profile.get_profile.ProfileView
     public void setProfileImage(String urlImage) {
-        GlideApp.with(getActivity()).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + urlImage).into(this.hexagonMaskView);
+        GlideApp.with(getActivity()).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + urlImage).into(this.hexagonMaskView);
     }
 
     @Override // quadrant.mokafat.points.view.profile.get_profile.ProfileView

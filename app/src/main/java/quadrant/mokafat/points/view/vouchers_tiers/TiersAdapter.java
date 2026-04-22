@@ -3,7 +3,7 @@ package quadrant.mokafat.points.view.vouchers_tiers;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,7 @@ import quadrant.mokafat.points.helper.Utilities;
 import quadrant.mokafat.points.models.objects.get_vouchers.DataObjectDetails;
 
 /* JADX INFO: loaded from: classes.dex */
-public class TiersAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class TiersAdapter extends RecyclerView.Adapter<TiersAdapter.MyViewHolder> {
     private static LayoutInflater inflater = null;
     private Context context;
     private List<DataObjectDetails> listTiers;
@@ -45,7 +45,7 @@ public class TiersAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        GlideApp.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listTiers.get(position).getAttributes().getMain_image()).into(holder.tierImage);
+        GlideApp.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.listTiers.get(position).getAttributes().getMain_image()).into(holder.tierImage);
         holder.tierImage.setOnClickListener(new View.OnClickListener() { // from class: quadrant.mokafat.points.view.vouchers_tiers.TiersAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {

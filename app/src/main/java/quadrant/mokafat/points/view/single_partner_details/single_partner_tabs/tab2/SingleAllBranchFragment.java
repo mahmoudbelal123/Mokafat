@@ -9,9 +9,9 @@ import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -205,7 +205,7 @@ public class SingleAllBranchFragment extends Fragment implements OnMapReadyCallb
 
     @Override // quadrant.mokafat.points.view.single_partner_details.single_partner_tabs.tab2.VendorBranchesView
     public void showResponse(DataObject dataObject) {
-        GlideApp.with(getActivity()).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + getActivity().getIntent().getStringExtra("partner_logo")).into(this.imageViewVendorLogo);
+        GlideApp.with(getActivity()).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + getActivity().getIntent().getStringExtra("partner_logo")).into(this.imageViewVendorLogo);
         for (int i = 0; i < dataObject.getData().size(); i++) {
             LatLng latLng2 = new LatLng(Double.parseDouble(dataObject.getData().get(i).getAttributes().getLatitude()), Double.parseDouble(dataObject.getData().get(i).getAttributes().getLongitude()));
             MarkerOptions markerOptions2 = new MarkerOptions();

@@ -2,9 +2,9 @@ package quadrant.mokafat.points.view.profile.get_profile.get_home_sections;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +24,7 @@ import quadrant.mokafat.points.view.profile.get_profile.slides.SlidesFragment;
 import quadrant.mokafat.points.view.sections.get_section.section_tabs.get_specefic_section.SpecificSectionFragment;
 
 /* JADX INFO: loaded from: classes.dex */
-public class RecycleSectionsAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class RecycleSectionsAdapter extends RecyclerView.Adapter<RecycleSectionsAdapter.MyViewHolder> {
     private Context context;
     List<DataObjectDetails> sectionsResponseList;
     SlidesFragment slidesFragment;
@@ -56,7 +56,7 @@ public class RecycleSectionsAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        Glide.with(this.context).load2("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.sectionsResponseList.get(position).getAttributes().getMain_image()).listener(new RequestListener<Drawable>() { // from class: quadrant.mokafat.points.view.profile.get_profile.get_home_sections.RecycleSectionsAdapter.1
+        Glide.with(this.context).load("http://199.247.4.89/mokafat/dev/public/uploads/large/" + this.sectionsResponseList.get(position).getAttributes().getMain_image()).listener(new RequestListener<Drawable>() { // from class: quadrant.mokafat.points.view.profile.get_profile.get_home_sections.RecycleSectionsAdapter.1
             @Override // com.bumptech.glide.request.RequestListener
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 holder.progressBar.setVisibility(8);

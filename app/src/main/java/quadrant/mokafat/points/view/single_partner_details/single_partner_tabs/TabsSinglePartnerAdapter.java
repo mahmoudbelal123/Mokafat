@@ -1,8 +1,8 @@
 package quadrant.mokafat.points.view.single_partner_details.single_partner_tabs;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import quadrant.mokafat.points.view.single_partner_details.single_partner_tabs.tab1.SingleHotDealsFragment;
 import quadrant.mokafat.points.view.single_partner_details.single_partner_tabs.tab2.SingleAllBranchFragment;
 
