@@ -306,7 +306,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         return super.onOptionsItemSelected(item);
     }
 
-    @Override // android.support.design.widget.NavigationView.OnNavigationItemSelectedListener
+    @Override // com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
     public boolean onNavigationItemSelected(MenuItem item) {
         item.getItemId();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -388,101 +388,89 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
     @Override // android.view.View.OnClickListener
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.imageView_account_image /* 2131296435 */:
-                this.mTitleToolbarTxt.setText("Account");
-                this.mSearchView.setVisibility(4);
-                this.mNearbyImage.setVisibility(4);
-                addEditProfileFragment();
-                if (this.drawer.isDrawerOpen(GravityCompat.START)) {
-                    this.drawer.closeDrawer(GravityCompat.START);
-                }
-                Utilities.back = false;
-                break;
-            case R.id.imageView_edit_account /* 2131296436 */:
-                this.mTitleToolbarTxt.setText("Account");
-                this.mSearchView.setVisibility(4);
-                this.mNearbyImage.setVisibility(4);
-                addEditProfileFragment();
-                if (this.drawer.isDrawerOpen(GravityCompat.START)) {
-                    this.drawer.closeDrawer(GravityCompat.START);
-                }
-                Utilities.back = false;
-                break;
-            case R.id.imageView_nearby_toolbar /* 2131296438 */:
-                checkLocationPermission();
-                break;
-            case R.id.imageView_qr_code /* 2131296443 */:
-                startActivity(new Intent(this, (Class<?>) QrCodeActivity.class));
-                Utilities.back = false;
-                break;
-            case R.id.linear_activities /* 2131296465 */:
-                addActivitiesFragment();
-                Utilities.back = false;
-                break;
-            case R.id.linear_help /* 2131296468 */:
-                setBackgroundHelp(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
-                addHelpFragment();
-                this.mSearchView.setVisibility(0);
-                this.mTitleToolbarTxt.setText("Help");
-                this.mNearbyImage.setVisibility(4);
-                if (this.drawer.isDrawerOpen(GravityCompat.START)) {
-                    this.drawer.closeDrawer(GravityCompat.START);
-                }
-                Utilities.back = false;
-                break;
-            case R.id.linear_layout_get_your_voucher /* 2131296469 */:
-                setBackgroundGetVoucher(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
-                if (this.drawer.isDrawerOpen(GravityCompat.START)) {
-                    this.drawer.closeDrawer(GravityCompat.START);
-                }
-                this.mSearchView.setVisibility(4);
-                this.mNearbyImage.setVisibility(0);
-                this.mTitleToolbarTxt.setText("Get Your Voucher");
-                addGetYourVoucherFragment();
-                Utilities.back = false;
-                break;
-            case R.id.linear_layout_home /* 2131296470 */:
-                addHome();
-                break;
-            case R.id.linear_partners /* 2131296471 */:
-                if (this.drawer.isDrawerOpen(GravityCompat.START)) {
-                    this.drawer.closeDrawer(GravityCompat.START);
-                }
-                setBackgroundPartners(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
-                this.mSearchView.setVisibility(4);
-                this.mNearbyImage.setVisibility(0);
-                this.mTitleToolbarTxt.setText("Partners");
-                addPartnersContainerFragment();
-                Utilities.back = false;
-                break;
-            case R.id.linear_sections /* 2131296473 */:
-                this.mSearchView.setVisibility(4);
-                this.mNearbyImage.setVisibility(0);
-                this.mTitleToolbarTxt.setText("Sections");
-                addSectionsFragment();
-                setBackgroundSections(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
-                if (this.drawer.isDrawerOpen(GravityCompat.START)) {
-                    this.drawer.closeDrawer(GravityCompat.START);
-                }
-                Utilities.back = false;
-                break;
-            case R.id.linear_settings /* 2131296474 */:
-                addSettingFragment();
-                if (this.drawer.isDrawerOpen(GravityCompat.START)) {
-                    this.drawer.closeDrawer(GravityCompat.START);
-                }
-                this.mSearchView.setVisibility(4);
-                this.mTitleToolbarTxt.setText("Settings");
-                this.mNearbyImage.setVisibility(4);
-                setBackgroundSettings(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
-                Utilities.back = false;
-                break;
-            case R.id.textView_open_site_from_navigation /* 2131296675 */:
-                Intent intent = new Intent("android.intent.action.VIEW");
-                intent.setData(Uri.parse(EndPoints.MOKAFAT_URL));
-                startActivity(intent);
-                break;
+        int id = v.getId();
+        if (id == R.id.imageView_account_image) {
+            this.mTitleToolbarTxt.setText("Account");
+            this.mSearchView.setVisibility(4);
+            this.mNearbyImage.setVisibility(4);
+            addEditProfileFragment();
+            if (this.drawer.isDrawerOpen(GravityCompat.START)) {
+                this.drawer.closeDrawer(GravityCompat.START);
+            }
+            Utilities.back = false;
+        } else if (id == R.id.imageView_edit_account) {
+            this.mTitleToolbarTxt.setText("Account");
+            this.mSearchView.setVisibility(4);
+            this.mNearbyImage.setVisibility(4);
+            addEditProfileFragment();
+            if (this.drawer.isDrawerOpen(GravityCompat.START)) {
+                this.drawer.closeDrawer(GravityCompat.START);
+            }
+            Utilities.back = false;
+        } else if (id == R.id.imageView_nearby_toolbar) {
+            checkLocationPermission();
+        } else if (id == R.id.imageView_qr_code) {
+            startActivity(new Intent(this, (Class<?>) QrCodeActivity.class));
+            Utilities.back = false;
+        } else if (id == R.id.linear_activities) {
+            addActivitiesFragment();
+            Utilities.back = false;
+        } else if (id == R.id.linear_help) {
+            setBackgroundHelp(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
+            addHelpFragment();
+            this.mSearchView.setVisibility(0);
+            this.mTitleToolbarTxt.setText("Help");
+            this.mNearbyImage.setVisibility(4);
+            if (this.drawer.isDrawerOpen(GravityCompat.START)) {
+                this.drawer.closeDrawer(GravityCompat.START);
+            }
+            Utilities.back = false;
+        } else if (id == R.id.linear_layout_get_your_voucher) {
+            setBackgroundGetVoucher(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
+            if (this.drawer.isDrawerOpen(GravityCompat.START)) {
+                this.drawer.closeDrawer(GravityCompat.START);
+            }
+            this.mSearchView.setVisibility(4);
+            this.mNearbyImage.setVisibility(0);
+            this.mTitleToolbarTxt.setText("Get Your Voucher");
+            addGetYourVoucherFragment();
+            Utilities.back = false;
+        } else if (id == R.id.linear_layout_home) {
+            addHome();
+        } else if (id == R.id.linear_partners) {
+            if (this.drawer.isDrawerOpen(GravityCompat.START)) {
+                this.drawer.closeDrawer(GravityCompat.START);
+            }
+            setBackgroundPartners(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
+            this.mSearchView.setVisibility(4);
+            this.mNearbyImage.setVisibility(0);
+            this.mTitleToolbarTxt.setText("Partners");
+            addPartnersContainerFragment();
+            Utilities.back = false;
+        } else if (id == R.id.linear_sections) {
+            this.mSearchView.setVisibility(4);
+            this.mNearbyImage.setVisibility(0);
+            this.mTitleToolbarTxt.setText("Sections");
+            addSectionsFragment();
+            setBackgroundSections(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
+            if (this.drawer.isDrawerOpen(GravityCompat.START)) {
+                this.drawer.closeDrawer(GravityCompat.START);
+            }
+            Utilities.back = false;
+        } else if (id == R.id.linear_settings) {
+            addSettingFragment();
+            if (this.drawer.isDrawerOpen(GravityCompat.START)) {
+                this.drawer.closeDrawer(GravityCompat.START);
+            }
+            this.mSearchView.setVisibility(4);
+            this.mTitleToolbarTxt.setText("Settings");
+            this.mNearbyImage.setVisibility(4);
+            setBackgroundSettings(this.linearLayoutHome, this.linearLayoutPartners, this.linearLayoutActivities, this.linearLayoutHelp, this.linearLayoutSettings, this.linearLayoutSections, this.linearLayoutGetYourVoucher);
+            Utilities.back = false;
+        } else if (id == R.id.textView_open_site_from_navigation) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(Uri.parse(EndPoints.MOKAFAT_URL));
+            startActivity(intent);
         }
     }
 
