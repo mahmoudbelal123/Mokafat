@@ -24,7 +24,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"/>
-            <com.viewpagerindicator.CirclePageIndicator
+            <me.relex.circleindicator.CircleIndicator
+                app:ci_drawable="@drawable/white_dot"
+                app:ci_drawable_unselected="@drawable/white_dot_unselected"
                 android:gravity="bottom"
                 android:id="@+id/indicator"
                 android:padding="10dp"
@@ -32,11 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                app:centered="true"
-                app:fillColor="#fff"
-                app:pageColor="#1affffff"
-                app:snap="false"/>
+                android:layout_centerHorizontal="true"/>
         </RelativeLayout>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
